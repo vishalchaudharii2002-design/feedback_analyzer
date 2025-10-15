@@ -1,0 +1,47 @@
+feedback_analyzer/
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py                  # FastAPI app entrypoint
+│   │   ├── api/
+│   │   │   ├── __init__.py
+│   │   │   ├── upload.py            # /upload endpoint logic
+│   │   │   ├── status.py            # /status endpoint logic
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py            # Configs: GCS, email, etc.
+│   │   │   ├── celery_app.py        # Celery app config
+│   │   ├── db/
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py            # SQLAlchemy models (JobStatus)
+│   │   │   ├── crud.py              # DB operations
+│   │   │   ├── session.py           # SQLite engine & session setup
+│   │   ├── tasks/
+│   │   │   ├── __init__.py
+│   │   │   ├── process_file.py      # Celery task logic
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   ├── gcs.py               # GCS helpers
+│   │   │   ├── email.py             # Email sending helpers
+│   │   │   ├── analysis.py          # Your file analysis code
+│   │   │   ├── job_status.py        # Helpers for job status updates
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── README.md
+│
+├── frontend/
+│   ├── index.html                   # Upload page
+│   ├── status.html                  # Status check page
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│       ├── upload.js                # JS for upload page
+│       ├── status.js                # JS for status page
+│
+├── worker/
+│   ├── celery_worker.py             # Script to start celery worker
+│   ├── Dockerfile
+│
+├── docker-compose.yml               # To run backend, worker, redis together
+├── ROADMAP.md                      # Project roadmap
+└── README.md

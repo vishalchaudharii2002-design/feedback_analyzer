@@ -1,0 +1,24 @@
+# Web framework
+fastapi
+uvicorn[standard]
+
+# Celery + Redis
+celery
+redis
+
+# ORM and SQLite
+sqlalchemy
+
+# Config and environment loading
+pydantic
+python-dotenv
+
+# Cloud Storage
+google-cloud-storage
+
+# Email
+aiosmtplib
+
+# Data handling
+pandas
+openpyxl

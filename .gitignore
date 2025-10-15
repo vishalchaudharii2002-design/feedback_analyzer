@@ -1,0 +1,51 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.dylib
+
+# FastAPI server's database
+*.sqlite3
+*.db
+
+# Virtual environment directories
+venv/
+.env/
+
+# Docker files
+*.log
+docker-compose.override.yml
+
+# Environment variables
+.env
+
+# IDE settings (VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Pytest cache
+.cache/
+
+# Local storage, temporary files
+*.bak
+*.swp
+*.tmp
+*.pid
+
+# Google Cloud SDK files (if applicable)
+.gcloud/
+
+# Celery-related files
+celerybeat-schedule
+celerybeat.pid
+
+# Logs
+logs/
+*.log
+
+# Docker-related files (if using Docker)
+.docker/
+docker-compose.override.yml
