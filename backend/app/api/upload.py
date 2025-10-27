@@ -1,16 +1,16 @@
 from fastapi import APIRouter, File, UploadFile, Form
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 import shutil
 import os
 import uuid
 
-from app.core.config import settings
-from app.core.celery_app import celery_app
-from app.models.job import Job, SessionLocal
-from app.tasks.process_file import process_file_task
-from app.utils.gcs import upload_file_to_gcs
+from backend.app.core.config import settings
+from backend.app.core.celery_app import celery_app
+# from app.models.job import Job, SessionLocal
+from backend.app.tasks.process_file import process_file_task
+from backend.app.utils.gcs import upload_file_to_gcs
 
-router = APIRouter()
+router = APIRouter(prefix="/upload", tags=["upload"])
 
 @router.post("/")
 async def upload_file(file: UploadFile = File(...), email: str = Form(...)):
@@ -25,11 +25,11 @@ async def upload_file(file: UploadFile = File(...), email: str = Form(...)):
     gcs_file_url = upload_file_to_gcs(tmp_file_path, job_id, file.filename)
 
     # Create DB entry for the job
-    db = SessionLocal()
-    job = Job(id=job_id, filename=file.filename, email=email, status="queued", file_url=gcs_file_url)
-    db.add(job)
-    db.commit()
-    db.close()
+    # db = SessionLocal()
+    # job = Job(id=job_id, filename=file.filename, email=email, status="queued", file_url=gcs_file_url)
+    # db.add(job)
+    # db.commit()
+    # db.close()
 
     # Queue background task
     process_file_task.delay(job_id, gcs_file_url, email)
@@ -41,4 +41,5 @@ async def upload_file(file: UploadFile = File(...), email: str = Form(...)):
 
 @router.get("/")
 async def get_upload_status():
-    return {"message": "Upload route to receive files."}
+    # return {"message": "Upload route to receive files."}
+    return FileResponse('frontend/index.html')
