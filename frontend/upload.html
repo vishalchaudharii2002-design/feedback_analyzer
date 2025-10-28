@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Analyzer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-2xl p-8 bg-white rounded-lg shadow-lg">
+        <header>
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">New File Upload</h2>
+            <p class="text-gray-500 mb-8 text-center">Upload your file below. Required columns: **Question,Answer**.</p>
+        </header>
+        <main>
+            <div id="drop-zone" class="card p-8 border-2 border-dashed border-blue-300 hover:border-blue-500 transition duration-200 text-center cursor-pointer mb-8">
+                <i data-lucide="file-input" class="w-12 h-12 text-blue-500 mx-auto mb-3"></i>
+                <p class="text-lg font-medium text-gray-700">Drag & drop your file here, or <span class="text-blue-500 underline">browse</span></p>
+                <p class="text-sm text-gray-400 mt-1">Accepted formats: .csv, .xlsx</p>
+                <input type="file" id="file-input" class="hidden" accept=".csv, .xlsx" onchange="handleFileUpload(this.files)">
+            </div>
+            <div class="flex justify-center">
+                <button id="submit-analysis-btn" onclick="submitFileForAnalysis()" class="mt-6 w-full bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600 transition duration-200 font-semibold disabled:opacity-50 max-w-xs" disabled>
+                    <span id="submit-text">Submit for Analysis</span>
+                    <i data-lucide="loader-2" class="w-5 h-5 animate-spin hidden ml-2" id="submit-spinner"></i>
+                </button>
+            </div>
+        </main>   
+    </div>
+    <script src="js/upload.js"></script>
+</body>
+</html>

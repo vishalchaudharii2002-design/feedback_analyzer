@@ -3,10 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feedback Analyzer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload file</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis in ullam inventore exercitationem accusamus eaque, voluptate repudiandae aperiam autem odio distinctio vero velit officia fuga iste vitae! Dolorum obcaecati architecto tenetur harum veniam deserunt porro cum. Necessitatibus enim tempore possimus odit rerum molestiae cum, dolorum aspernatur? Cumque magni modi architecto aspernatur soluta facilis quod sed, id odit aliquam inventore consequatur voluptates sequi nemo numquam. Atque, dolorem eos corrupti rerum cupiditate vero perspiciatis dolorum fuga cum amet quis saepe fugiat beatae eius nisi? Delectus ullam quos quisquam ab voluptates consequatur omnis suscipit ea, pariatur accusantium itaque fugit est! Adipisci animi asperiores, esse excepturi quibusdam consequuntur doloribus perspiciatis rerum non quia error, quaerat ratione! Officiis, porro harum veritatis nemo quia dolores excepturi, ab odit itaque et doloremque quis accusantium nam obcaecati numquam voluptas! Mollitia molestiae provident, est maiores iusto rem rerum eveniet culpa tempore, repellendus saepe et, eaque animi beatae distinctio quasi blanditiis. Laborum tempora, id nihil a soluta eius autem omnis sint. Hic possimus, ab corrupti, accusamus recusandae, magnam suscipit sunt doloribus ipsam aperiam cumque facilis laudantium necessitatibus deleniti minus ipsa inventore asperiores velit! Molestiae eius, vero reiciendis, fugit dolorum itaque voluptates dolores eaque accusantium facere in beatae deserunt eum doloremque consectetur nesciunt architecto corrupti tempore cupiditate reprehenderit. Recusandae, a ullam nemo autem sequi enim nisi est adipisci nam voluptates, voluptas quod quibusdam exercitationem modi nesciunt quasi, asperiores inventore. Esse, rem natus. Assumenda odit officiis quis dignissimos culpa laboriosam sint possimus voluptatum eos nemo fugit cupiditate consequuntur hic ducimus, omnis tempore consectetur ullam, voluptate sapiente totam! Recusandae est nulla deserunt odit voluptatem unde doloribus molestiae beatae incidunt laudantium nihil sed, ipsam, laborum ratione eaque aperiam molestias quos fugit voluptatibus. Rerum omnis tempora iure perspiciatis porro facilis, ipsam odio vitae neque aliquam, possimus placeat suscipit quaerat quasi cum illo dolorum dolore voluptate consectetur dolores. Aut quibusdam dolorem, dolorum, cum similique deleniti saepe beatae veritatis suscipit reiciendis dicta ullam molestiae vel accusantium necessitatibus hic ad animi! Odio illo eaque possimus, amet in nobis at ut quae reprehenderit, veritatis et culpa doloribus dolorem nihil pariatur adipisci numquam doloremque natus ratione sed obcaecati delectus rerum quod eum. Nesciunt, aliquid! Consequuntur quisquam quo repudiandae sed dolorem, rerum facere dicta repellat fuga. At impedit enim exercitationem atque non odio, corporis totam nihil aspernatur minima soluta harum ipsa magnam omnis, adipisci laudantium quis officiis expedita nostrum molestiae quaerat temporibus quos ducimus. Fugit exercitationem quaerat iusto! Eaque vero iusto beatae cum repudiandae recusandae ut cupiditate ea, adipisci ducimus, aliquid fugiat nulla quibusdam incidunt necessitatibus! Sapiente iusto eligendi et enim itaque aspernatur quis quaerat? Similique impedit aspernatur, nemo fuga rem odio quas debitis? Eius illo est praesentium asperiores. Commodi dignissimos obcaecati consequatur aliquid consectetur iste illo ea perferendis quasi, accusantium, officiis eos fuga molestias laboriosam deleniti eligendi perspiciatis voluptate? Dolor quam adipisci voluptatibus iure aliquam nihil necessitatibus quaerat recusandae, magni, placeat eum exercitationem dicta ipsa minus velit soluta accusamus. Suscipit excepturi exercitationem optio est distinctio minus culpa eaque facere, incidunt blanditiis, omnis debitis obcaecati recusandae impedit modi fugiat dolores error!</p>
-</body>
-</html>
+     <div id="notification-container"></div>
+     
+     <header class="bg-white shadow-md sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">
+                Feedback <span class="text-blue-500">Analyzer</span>
+            </h1>
+
+            <div id="nav-links" class="space-x-4">
+                <a href="#" onclick="showPage('home')" class="text-gray-600 hover:text-blue-500 transition duration-150 font-medium">Dashboard</a>
+                <a href="#" onclick="showPage('upload')" class="text-gray-600 hover:text-blue-500 transition duration-150 font-medium">Upload</a>
+                <a href="#" onclick="showPage('status')" class="text-gray-600 hover:text-blue-500 transition duration-150 font-medium">Status</a>
+                <a href="#" onclick="showPage('analytics')" class="text-gray-600 hover:text-blue-500 transition duration-150 font-medium">Analytics</a>
+            </div>
+
+            <!-- Mobile Menu Placeholder (Not fully implemented for brevity, but structured for responsiveness) -->
+            <button class="md:hidden text-gray-600 hover:text-blue-500">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div id="app-container">
+        <div id="page-dashboard">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Welcome to Feedback Analyzer</h2>
+            <p class="text-gray-500 mb-8">Manage your feedback files and track analysis progress.</p>
+            <div id="summary-cards" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+                    <!-- Cards will be populated by JS -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="card p-6 border-b-4 border-blue-500 flex flex-col items-center text-center">
+                        <i data-lucide="upload-cloud" class="w-10 h-10 text-blue-500 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Upload File</h3>
+                        <p class="text-gray-500 mb-4">Start a new analysis by uploading a CSV or XLSX file.</p>
+                        <button onclick="showPage('upload')" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200 shadow-md">
+                            Go to Upload
+                        </button>
+                    </div>
+                    <div class="card p-6 border-b-4 border-emerald-500 flex flex-col items-center text-center">
+                        <i data-lucide="check-square" class="w-10 h-10 text-emerald-500 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Check Status</h3>
+                        <p class="text-gray-500 mb-4">Monitor the processing status of your recently submitted files.</p>
+                        <button onclick="showPage('status')" class="w-full bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 transition duration-200 shadow-md">
+                            Go to Status
+                        </button>
+                    </div>
+                    <div class="card p-6 border-b-4 border-amber-500 flex flex-col items-center text-center">
+                        <i data-lucide="bar-chart-2" class="w-10 h-10 text-amber-500 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">View Analytics</h3>
+                        <p class="text-gray-500 mb-4">Access detailed charts and KPIs for completed analyses.</p>
+                        <button onclick="showPage('analytics')" class="w-full bg-amber-500 text-white py-2 px-4 rounded-lg hover:bg-amber-600 transition duration-200 shadow-md">
+                            View Analytics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Table -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Your Upload History</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File Name</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Upload Date</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-table-body" class="bg-white divide-y divide-gray-200">
+                                <!-- History rows populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </main>
+    <script src="main.js"></script>
+</body> 

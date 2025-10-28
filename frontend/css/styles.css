@@ -1,0 +1,73 @@
+ /* Custom Styles for Professional Look, Animations, and Accents */
+        :root {
+            --color-primary: #3b82f6; /* soft blue-500 */
+            --color-highlight: #10b981; /* emerald-500 */
+            --color-bg-light: #f9fafb;
+            --color-bg-white: #ffffff;
+        }
+
+        /* Inter Font Fallback (Tailwind default) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-light);
+            color: #4b5563; /* grey typography */
+        }
+
+        /* Custom Shadow and Border Radius */
+        .card {
+            background-color: var(--color-bg-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animated Progress Bar */
+        .progress-bar-fill {
+            transition: width 0.5s ease-in-out;
+            background-color: var(--color-primary);
+        }
+
+        /* Status Timeline Styling */
+        .timeline-step {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid #e5e7eb;
+        }
+        .timeline-step.completed .timeline-dot {
+            background-color: var(--color-highlight);
+            border: 2px solid var(--color-highlight);
+        }
+        .timeline-step .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            border: 2px solid #d1d5db;
+        }
+        .timeline-step:last-child {
+            border-left: none;
+        }
+
+        /* Notification Styling */
+        #notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .notification {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }

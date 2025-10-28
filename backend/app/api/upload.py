@@ -42,4 +42,4 @@ async def upload_file(file: UploadFile = File(...), email: str = Form(...)):
 @router.get("/")
 async def get_upload_status():
     # return {"message": "Upload route to receive files."}
-    return FileResponse('frontend/index.html')
+    return FileResponse('frontend/upload.html')
